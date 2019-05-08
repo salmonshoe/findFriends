@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery.js"></script>
     <title>Welcome!</title>
     <style>
         body {
@@ -29,13 +30,13 @@
             <h4>Name (required)</h4>
             <input type="text" id="name" class="form-control" required>
             <h4>Link to Photo Image</h4>
-            <input type="text" id="photo" class="form-control" required>
+            <input type="text" id="pic" class="form-control" required>
             <hr>
         </div>
 
         <div id="questions">
             <h4><strong>Question 1</strong></h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, labore corrupti!</p>
+            <p>People can rarely upset you.</p>
             <select id="q1" class="choose-options">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
@@ -46,8 +47,8 @@
             </select>
 
             <h4><strong>Question 2</strong></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur quidem fugiat non.</p>
-            <select id="q1" class="choose-options">
+            <p>You are the type of person to think before you speak.</p>
+            <select id="q2" class="choose-options">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -57,8 +58,8 @@
             </select>
 
             <h4><strong>Question 3</strong></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed et nam porro consequatur culpa harum.</p>
-            <select id="q1" class="choose-options">
+            <p>You are a very active person.</p>
+            <select id="q3" class="choose-options">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -66,10 +67,10 @@
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select>
-            
+
             <h4><strong>Question 4</strong></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed et nam porro consequatur culpa harum.</p>
-            <select id="q1" class="choose-options">
+            <p>You often spend time daydreaming and getting lost in your thoughts.</p>
+            <select id="q4" class="choose-options">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -79,8 +80,8 @@
             </select>
 
             <h4><strong>Question 5</strong></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed et nam porro consequatur culpa harum.</p>
-            <select id="q1" class="choose-options">
+            <p>You rarely worry if you made a good impression on someone you met.</p>
+            <select id="q5" class="choose-options">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -90,8 +91,8 @@
             </select>
 
             <h4><strong>Question 6</strong></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed et nam porro consequatur culpa harum.</p>
-            <select id="q1" class="choose-options">
+            <p>You are more of a detail-oriented than a big picture person.</p>
+            <select id="q6" class="choose-options">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -99,10 +100,10 @@
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select>
-            
+
             <h4><strong>Question 7</strong></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed et nam porro consequatur culpa harum.</p>
-            <select id="q1" class="choose-options">
+            <p>You are very affectionate with people you care about.</p>
+            <select id="q7" class="choose-options">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -110,10 +111,10 @@
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select>
-            
+
             <h4><strong>Question 8</strong></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed et nam porro consequatur culpa harum.</p>
-            <select id="q1" class="choose-options">
+            <p>It takes you a long time to start or build new habits.</p>
+            <select id="q8" class="choose-options">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -121,10 +122,10 @@
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select>
-            
+
             <h4><strong>Question 9</strong></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed et nam porro consequatur culpa harum.</p>
-            <select id="q1" class="choose-options">
+            <p>When it comes to making a decision for a restaurant to eat at, you are very undecisive.</p>
+            <select id="q9" class="choose-options">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -132,10 +133,10 @@
                 <option value="4">4</option>
                 <option value="5">5 (Strongly Agree)</option>
             </select>
-            
+
             <h4><strong>Question 10</strong></h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed et nam porro consequatur culpa harum.</p>
-            <select id="q1" class="choose-options">
+            <p>It is easy for you to get along with all types of people.</p>
+            <select id="q10" class="choose-options">
                 <option value=""></option>
                 <option value="1">1 (Strongly Disagree)</option>
                 <option value="2">2</option>
@@ -146,7 +147,7 @@
         </div>
         <br>
         <div id="submit-results">
-            <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit">
+            <button class="btn btn-primary btn-lg btn-block" type="submit" id="submitEntries">
                 Submit Survey
             </button>
         </div>
@@ -155,10 +156,49 @@
         <div class="container">
             <p>
                 <a href="/api/friends">API Friends List</a> |
-                <a href="#">GitHub Repository</a>
+                <a href="https://github.com/salmonshoe/findFriends">GitHub Repository</a>
             </p>
         </div>
     </footer>
+    <script>
+        $(document).ready(() => {
+            $("#submitEntries").on('click', (event) => {
+                event.preventDefault();
+                let surValues = {
+                    name: $("#name").val().trim(),
+                    photo: $("#pic").val().trim(),
+                    scores: [
+                        $("#q1").val().trim(),
+                        $("#q2").val().trim(),
+                        $("#q3").val().trim(),
+                        $("#q4").val().trim(),
+                        $("#q5").val().trim(),
+                        $("#q6").val().trim(),
+                        $("#q7").val().trim(),
+                        $("#q8").val().trim(),
+                        $("#q9").val().trim(),
+                        $("#q10").val().trim(),
+                    ]
+                };
+                //console.log(surValues);
+                $.post('/api/friends', surValues, (data) => {
+                    //Alert user and clear form for next input
+                    alert('Finding your friends...');
+
+                        $("#q1").val("");
+                        $("#q2").val("");
+                        $("#q3").val('');
+                        $("#q4").val('');
+                        $("#q5").val('');
+                        $("#q6").val('');
+                        $("#q7").val('');
+                        $("#q8").val('');
+                        $("#q9").val('');
+                        $("#q10").val('');
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>
