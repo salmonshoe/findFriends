@@ -30,7 +30,7 @@
             <h4>Name (required)</h4>
             <input type="text" id="name" class="form-control" required>
             <h4>Link to Photo Image</h4>
-            <input type="text" id="pic" class="form-control" required>
+            <input type="text" id="photo" class="form-control" required>
             <hr>
         </div>
 
@@ -160,44 +160,91 @@
             </p>
         </div>
     </footer>
+
     <script>
-        $(document).ready(() => {
-            $("#submitEntries").on('click', (event) => {
-                event.preventDefault();
-                let surValues = {
-                    name: $("#name").val().trim(),
-                    photo: $("#pic").val().trim(),
+        // $(document).ready(() => {
+        //     $("#submitEntries").on('click', (event) => {
+        //         event.preventDefault();
+        //         let surValues = {
+        //             name: $("#name").val().trim(),
+        //             photo: $("#photo").val().trim(),
+        //             scores: [
+        //                 $("#q1").val().trim(),
+        //                 $("#q2").val().trim(),
+        //                 $("#q3").val().trim(),
+        //                 $("#q4").val().trim(),
+        //                 $("#q5").val().trim(),
+        //                 $("#q6").val().trim(),
+        //                 $("#q7").val().trim(),
+        //                 $("#q8").val().trim(),
+        //                 $("#q9").val().trim(),
+        //                 $("#q10").val().trim(),
+        //             ]
+        //         };
+        //         //console.log(surValues);
+        //         $.post('/api/friends', surValues, (data) => {
+        //             //Alert user and clear form for next input
+        //             alert('Finding your friends...');
+
+        //                 $("#q1").val("");
+        //                 $("#q2").val("");
+        //                 $("#q3").val('');
+        //                 $("#q4").val('');
+        //                 $("#q5").val('');
+        //                 $("#q6").val('');
+        //                 $("#q7").val('');
+        //                 $("#q8").val('');
+        //                 $("#q9").val('');
+        //                 $("#q10").val('');
+        //         })
+        //     })
+        // })
+        $('#submitEntries').on('click', (event) => {
+            event.preventDefault();
+
+            function validateForm() {
+                let isValid = true;
+                $('.form-control').each(function() {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                $('.choose-options').each(function() {
+                    if ($(this).val() === "") {
+                        isValid = false;
+                    }
+                });
+                return isValid;
+            }
+
+            //Only perform once all fields are filled out
+            if (validateForm()) {
+                let userData = {
+                    name: $('#name').val(),
+                    photo: $('#photo').val(),
                     scores: [
-                        $("#q1").val().trim(),
-                        $("#q2").val().trim(),
-                        $("#q3").val().trim(),
-                        $("#q4").val().trim(),
-                        $("#q5").val().trim(),
-                        $("#q6").val().trim(),
-                        $("#q7").val().trim(),
-                        $("#q8").val().trim(),
-                        $("#q9").val().trim(),
-                        $("#q10").val().trim(),
+                    parseInt($('#q1').val()),
+                        $('#q2').val(),
+                        $('#q3').val(),
+                        $('#q4').val(),
+                        $('#q5').val(),
+                        $('#q6').val(),
+                        $('#q7').val(),
+                        $('#q8').val(),
+                        $('#q9').val(),
+                        $('#q10').val(),
                     ]
                 };
-                //console.log(surValues);
-                $.post('/api/friends', surValues, (data) => {
-                    //Alert user and clear form for next input
-                    alert('Finding your friends...');
 
-                        $("#q1").val("");
-                        $("#q2").val("");
-                        $("#q3").val('');
-                        $("#q4").val('');
-                        $("#q5").val('');
-                        $("#q6").val('');
-                        $("#q7").val('');
-                        $("#q8").val('');
-                        $("#q9").val('');
-                        $("#q10").val('');
-                })
-            })
-        })
+                $.post('/api/friends', userData, function(data) {
+                    //Grab from post so the best match gets displayed
+                    alert(`${data.name} is your best match!`);
+                    console.log(data.name);
+                });
+            } else {
+                alert('You must fill out all forms before submitting!');
+            }
+        });
     </script>
 </body>
 
